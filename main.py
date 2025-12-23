@@ -6,8 +6,17 @@ while True:
     match user_action.strip():
         
         case "add":
-            todo = input("Enter Task: ")
+            todo = input("Enter Task: ") + '\n' # \n for new line escape character
+
+            file = open('tasks.txt', 'r')
+            tasks = file.readlines()
+            file.close()
+
             tasks.append(todo)
+
+            file = open('tasks.txt', 'w')
+            file.writelines(tasks)
+            file.close()
 
         case "show":
             for index, item in enumerate(tasks):

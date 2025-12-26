@@ -29,17 +29,35 @@ while True:
                 print(f"{index + 1}. {item}") 
 
         case "edit":
+            
             stringifiedNumber = input("Number of the task to edit: ")
             number = int(stringifiedNumber)
-            newTask = input("Enter new task: ")
+
+            newTask = input("Enter new task: ") + '\n' # \n for new line escape character
+
+            with open('tasks.txt', 'r') as file:
+                tasks = file.readlines()
+
             tasks[number - 1] = newTask
+
+            with open('tasks.txt', 'w') as file:
+                file.writelines(tasks)
+
             print("Task Updated!")
 
         case "complete":
             stringifiedNumber = input("Number of the task to mark as complete: ")
             number = int(stringifiedNumber)
+
+            with open('tasks.txt', 'r') as file:
+                tasks = file.readlines()
+
             completedTask = tasks.pop(number - 1)
-            print(f"Task marked as completed: {completedTask}")
+
+            with open('tasks.txt', 'w') as file:
+                file.writelines(tasks)
+
+            print(f"Task marked as completed: {completedTask.strip('\n')}")
 
         case "exit":
             break

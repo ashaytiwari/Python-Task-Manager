@@ -1,7 +1,5 @@
-Test1
-Test2
-Test3
+Call John Doe
 bath
 greet
 buy books
-Read BG
+Read BG and SB

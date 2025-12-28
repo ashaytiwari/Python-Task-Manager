@@ -1,7 +1,7 @@
 while True:
     user_action = input("Type add, add-many, show, edit, complete or exit: ")
 
-    if 'add' in user_action:
+    if user_action.startswith("add"):
         
         todo = user_action[4:] # line slicing
 

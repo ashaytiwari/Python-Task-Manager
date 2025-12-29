@@ -6,3 +6,4 @@ Watch Tulsa King
 Watch Jurassic Park
 Go to shop
 Sent email to John
+Learn Python

@@ -1,4 +1,5 @@
-def get_tasks(filepath):
+""" Read tasks from the text file. """
+def get_tasks(filepath="tasks.txt"):
     
     with open(filepath, 'r') as file_local:
         tasks_local = file_local.readlines()
@@ -6,7 +7,8 @@ def get_tasks(filepath):
     return tasks_local
 
 
-def write_tasks(filepath, data):
+"""" Write Tasks in the text file. """
+def write_tasks(data, filepath="tasks.txt"):
     
     with open(filepath, 'w') as file_local:
         file_local.writelines(data)
@@ -16,9 +18,10 @@ while True:
 
     if user_action.startswith("add"):
         
-        todo = user_action[4:] # line slicing
+        """ line slicing """
+        todo = user_action[4:] 
 
-        # if user didn't provided any task input with add command, ask them to enter tasks
+        """ if user didn't provided any task input with add command, ask them to enter tasks """
         if todo == '':
             todo = input("Enter Task: ")
 
@@ -26,17 +29,17 @@ while True:
 
         tasks.append(todo + '\n')
 
-        write_tasks('tasks.txt', tasks)
+        write_tasks(filepath='tasks.txt', data=tasks)
 
     elif user_action == 'show':
             
         tasks = get_tasks('tasks.txt')
             
-        # list comprehension: to modify the list of items
+        """ list comprehension: to modify the list of items """
         # newTasks = [item.strip('\n') for item in tasks]
 
         for index, item in enumerate(tasks):
-            # more direct way to remove \n from item rather than above
+            """" more direct way to remove \n from item rather than above """
             item = item.title().strip('\n')
             print(f"{index + 1}. {item}")
 
@@ -52,7 +55,7 @@ while True:
 
             tasks[number - 1] = newTask
 
-            write_tasks('tasks.txt', tasks)
+            write_tasks(filepath='tasks.txt', data=tasks)
 
             print("Task Updated!")
 
@@ -70,7 +73,7 @@ while True:
 
             completedTask = tasks.pop(number - 1)
 
-            write_tasks('tasks.txt', tasks)
+            write_tasks(filepath='tasks.txt', data=tasks)
 
             print(f"Task marked as completed: {completedTask.strip('\n')}")
 

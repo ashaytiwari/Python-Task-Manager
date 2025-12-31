@@ -1,0 +1,14 @@
+[
+  {
+    "question_id": 1,
+    "question_text": "Which gas is primarily responsible for global warming?",
+    "alternatives": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    "correct_answer": 3
+  },
+  {
+    "question_id": 2,
+    "question_text": "What is the main source of energy for life on Earth?",
+    "alternatives": ["The Moon", "Electricity", "The Sun", "Wind"],
+    "correct_answer": 3
+  }
+]
